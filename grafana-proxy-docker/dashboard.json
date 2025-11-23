@@ -1,26 +1,54 @@
 {
-  "dashboard": {
-    "id": null,
-    "uid": null,
-    "title": "Test Dashboard",
-    "timezone": "browser",
-    "schemaVersion": 16,
-    "version": 0,
-    "refresh": "25s",
-    "panels": [
-      {
-        "id": 1,
-        "title": "Test Panel",
-        "type": "text",
-        "gridPos": {
-          "h": 8,
-          "w": 12,
-          "x": 0,
-          "y": 0
+  "id": null,
+  "uid": "22e81737-1033-4690-b031-bc0896ef8af3",
+  "title": "Test Dashboard",
+  "timezone": "browser",
+  "schemaVersion": 16,
+  "version": 0,
+  "refresh": "25s",
+  "panels": [
+    {
+      "id": 1,
+      "title": "Test Panel",
+      "type": "text",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": 2,
+      "title": "Weather Temperature",
+      "type": "timeseries",
+      "gridPos": {
+        "h": 8,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "datasource": {
+        "type": "testdata",
+        "uid": "grafana-testdata-datasource"
+      },
+      "targets": [
+        {
+          "refId": "A",
+          "scenarioId": "csv_metric_values",
+          "stringInput": "20,21,22,24,25,26,25,23,21,20",
+          "alias": "Temperature"
+        }
+      ],
+      "fieldConfig": {
+        "defaults": {
+          "unit": "celsius",
+          "custom": {
+            "drawStyle": "line",
+            "lineInterpolation": "smooth"
+          }
         }
       }
-    ]
-  },
-  "folderId": 0,
-  "overwrite": false
+    }
+  ]
 }

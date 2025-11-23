@@ -33,6 +33,8 @@ services:
       - "3000:3000"
     volumes:
       - grafana-data:/var/lib/grafana
+      - ./provisioning:/etc/grafana/provisioning
+      - ./dashboard.json:/var/lib/grafana/dashboards/dashboard.json
 
 networks:
   grafana-net:
