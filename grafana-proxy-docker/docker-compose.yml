@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 
 services:
   nginx:
@@ -28,12 +28,12 @@ services:
       - GF_SERVER_SERVE_FROM_SUB_PATH=true
       - GF_AUTH_ANONYMOUS_ENABLED=true
       - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
-      - GF_PANELS_DISABLE_SANITIZE_HTML=true   
+      - GF_PANELS_DISABLE_SANITIZE_HTML=true
     networks:
       - grafana-net
-    # ports:
-    # # For testing inside container. do not public
-    #   - "3000:3000" 
+    ports:
+      # # For testing inside container. do not public
+      - "3000:3000"
     volumes:
       - grafana-data:/var/lib/grafana
       - ./provisioning:/etc/grafana/provisioning
