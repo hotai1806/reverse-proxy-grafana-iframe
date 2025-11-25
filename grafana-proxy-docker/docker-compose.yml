@@ -1,19 +1,12 @@
 version: "3.8"
 
 services:
-  # cloudflared:
-  #   image: cloudflare/cloudflared:latest
-  #   restart: unless-stopped
-  #   command: tunnel run
-  #   environment:
-  #     - TUNNEL_TOKEN=your-token-here # lấy từ dashboard Cloudflare Zero Trust
   nginx:
     image: nginx:alpine
     ports:
       - "80:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      - ./nginx/certs:/etc/nginx/certs
     depends_on:
       - react-app
       - grafana
@@ -37,7 +30,6 @@ services:
     networks:
       - grafana-net
     ports:
-      # # For testing inside container. do not public
       - "3000:3000"
     volumes:
       - grafana-data:/var/lib/grafana
